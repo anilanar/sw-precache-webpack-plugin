@@ -1,7 +1,7 @@
 import path from 'path';
 import url from 'url';
 import del from 'del';
-import swPrecache from 'sw-precache';
+import swPrecache from '@anilanar/sw-precache';
 import UglifyJS from 'uglify-js';
 import fs from 'fs';
 
@@ -68,7 +68,9 @@ class SWPrecacheWebpackPlugin {
       ...options,
     };
     // generated configuration that will override user options
-    this.overrides = {};
+    this.overrides = {
+      customOptions: {},
+    };
   }
 
   /**
@@ -89,6 +91,7 @@ class SWPrecacheWebpackPlugin {
       // get the defaults from options
       const {
         importScripts,
+        importEntries,
         staticFileGlobsIgnorePatterns,
         mergeStaticsConfig,
       } = this.options;
@@ -133,6 +136,15 @@ class SWPrecacheWebpackPlugin {
         this.overrides.importScripts = importScripts
           .map(f => f.replace(/\[hash\]/g, compilation.hash)) // need to override importScripts with stats.hash
           .map(f => url.resolve(publicPath, f));  // add publicPath to importScripts
+      }
+
+      if (importEntries) {
+        const entries = importEntries.map(f => {
+          const chunk = compilation.chunks.find(c => c.name === f);
+          return `${chunk.files[0]}?hash=${chunk.renderedHash}`;
+        });
+
+        this.overrides.customOptions.importEntries = entries;
       }
 
       if (mergeStaticsConfig) {
