@@ -1,6 +1,6 @@
 {
-  "name": "sw-precache-webpack-plugin",
-  "version": "0.9.1",
+  "name": "@anilanar/sw-precache-webpack-plugin",
+  "version": "0.9.1-patched.1",
   "description": "Webpack plugin for using service workers",
   "main": "lib/index.js",
   "scripts": {
@@ -31,14 +31,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goldhand/sw-precache-webpack-plugin.git"
+    "url": "git+https://github.com/anilanar/sw-precache-webpack-plugin.git"
   },
   "author": "Will Farley <a.will.farley@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goldhand/sw-precache-webpack-plugin/issues"
+    "url": "https://github.com/anilanar/sw-precache-webpack-plugin/issues"
   },
-  "homepage": "https://github.com/goldhand/sw-precache-webpack-plugin#readme",
+  "homepage": "https://github.com/anilanar/sw-precache-webpack-plugin#readme",
   "peerDependencies": {
     "webpack": "^1 || ^2 || ^2.1.0-beta || ^2.2.0-beta"
   },
