@@ -1,6 +1,6 @@
 {
   "name": "@anilanar/sw-precache-webpack-plugin",
-  "version": "0.9.1-patched.1",
+  "version": "0.9.1-patched.2",
   "description": "Webpack plugin for using service workers",
   "main": "lib/index.js",
   "scripts": {
