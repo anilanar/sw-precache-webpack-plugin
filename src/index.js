@@ -69,7 +69,9 @@ class SWPrecacheWebpackPlugin {
     };
     // generated configuration that will override user options
     this.overrides = {
-      customOptions: {},
+      customOptions: {
+        ...this.options.customOptions,
+      },
     };
   }
 
